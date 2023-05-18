@@ -5,3 +5,7 @@
   @apply bg-white text-black
 
 }
+
+.setInput {
+  @apply bg-white border border-slate-500 focus:border-black text-slate-500 focus:text-black
+}
