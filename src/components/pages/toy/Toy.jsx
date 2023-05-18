@@ -1,6 +1,9 @@
 import React from "react";
+import useTitle from "../../../hooks/useTitle";
 
 const Toy = () => {
+  useTitle("Toy Details");
+
   let log =
     "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (

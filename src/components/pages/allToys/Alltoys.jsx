@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { ToyContext } from "../../../App";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const Alltoys = () => {
   const { toys } = useContext(ToyContext);
+  useTitle("All Toys");
   let log =
     "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (

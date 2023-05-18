@@ -7,9 +7,12 @@ import DeleveryInfo from "./DeleveryInfo";
 import Latest from "./Latest";
 import { ToyContext } from "../../../App";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
   const toysData = useContext(ToyContext);
+
+  useTitle("Home");
 
   const galItm = toysData.toys.slice(0, 4);
   const lstItm = toysData.toys.slice(0, 1);

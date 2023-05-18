@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import useTitle from "../../../hooks/useTitle";
 
 const Addtoys = () => {
   const [isChecked, setIsChecked] = useState(false);
+  useTitle("Add Toys");
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);

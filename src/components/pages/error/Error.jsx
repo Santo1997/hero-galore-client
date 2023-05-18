@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useRouteError } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const Error = () => {
   const { error, status } = useRouteError();
+  useTitle("Error");
 
   return (
     <div className="h-screen">
