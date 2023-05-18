@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 import Links from "./Links";
@@ -36,8 +36,8 @@ const Header = () => {
             <Link to={"/"}>Toy Market</Link>
           </h1>
         </div>
-        <div className="navbar-end hidden lg:flex text-md">
-          <ul className="menu menu-horizontal px-1">
+        <div className="navbar-end w-full hidden lg:flex text-md">
+          <ul className="menu menu-horizontal px-1 ">
             <Links></Links>
           </ul>
         </div>

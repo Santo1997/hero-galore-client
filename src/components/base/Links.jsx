@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Activelink from "./Activelink";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Links = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <li>
@@ -19,12 +31,46 @@ const Links = () => {
       <li>
         <Activelink to="/">Blogs</Activelink>
       </li>
-      <li>
-        <Activelink to="/login">Login</Activelink>
-      </li>
-      <li>
-        <Activelink to="/signup">Sign Up</Activelink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <button className="btn-md" onClick={handleLogOut}>
+              LogOut
+            </button>
+          </li>
+          <li className="hover:disabled">
+            <span className="btn-md">
+              {user.displayName !== null ? (
+                <>
+                  <div
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    className="avatar relative px-10"
+                  >
+                    <div className="w-10 rounded-full overflow-hidden">
+                      <img src={user.photoURL} />
+                    </div>
+                    {isHovered && (
+                      <p className="hoverPoint">{user.displayName}</p>
+                    )}
+                  </div>
+                </>
+              ) : (
+                user.email
+              )}
+            </span>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Activelink to="/login">Login</Activelink>
+          </li>
+          <li>
+            <Activelink to="/signUp">SignUp</Activelink>
+          </li>
+        </>
+      )}
     </>
   );
 };
