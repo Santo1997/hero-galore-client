@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import CtgData from "./CtgData";
 
-const Category = () => {
+const Category = ({ toysData }) => {
+  const marvelCate = toysData.filter(
+    (categor) => categor.category === "Marvel"
+  );
+  const dcCate = toysData.filter((categor) => categor.category === "DC");
+  const transformCate = toysData.filter(
+    (categor) => categor.category === "Transformers"
+  );
+
   return (
     <div>
       <h1 className="text-black font-bold text-4xl text-center mb-10">
@@ -10,19 +18,25 @@ const Category = () => {
       </h1>
       <Tabs className="mb-3">
         <TabList className="grid grid-cols-3 justify-items-center w-1/3 mx-auto">
-          <Tab className="btn btn-outline me-2">Title 1</Tab>
-          <Tab className="btn btn-outline me-2">Title 2</Tab>
-          <Tab className="btn btn-outline">Title 3</Tab>
+          <Tab className="btn btn-outline me-2">Marvels Comics</Tab>
+          <Tab className="btn btn-outline me-2">Dc Comics</Tab>
+          <Tab className="btn btn-outline">Transformers</Tab>
         </TabList>
 
         <TabPanel className="grid grid-cols-3 gap-3 mt-5">
-          <CtgData />
+          {marvelCate.map((marvel) => (
+            <CtgData data={marvel} key={marvel._id} />
+          ))}
         </TabPanel>
         <TabPanel className="grid grid-cols-3 gap-3">
-          <CtgData />
+          {dcCate.map((dc) => (
+            <CtgData data={dc} key={dc._id} />
+          ))}
         </TabPanel>
         <TabPanel className="grid grid-cols-3 gap-3">
-          <CtgData />
+          {transformCate.map((transform) => (
+            <CtgData data={transform} key={transform._id} />
+          ))}
         </TabPanel>
       </Tabs>
     </div>
