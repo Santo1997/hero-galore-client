@@ -1,14 +1,19 @@
 import React, { useContext, useState } from "react";
 import Activelink from "./Activelink";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Links = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
+  const from = "/";
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        navigate(from, { replace: true });
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -22,12 +27,16 @@ const Links = () => {
       <li>
         <Activelink to="/all_toys">All Toys</Activelink>
       </li>
-      <li>
-        <Activelink to="/">My Toys</Activelink>
-      </li>
-      <li>
-        <Activelink to="/add_toy">Add A Toy</Activelink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <Activelink to="/">My Toys</Activelink>
+          </li>
+          <li>
+            <Activelink to="/add_toy">Add A Toy</Activelink>
+          </li>
+        </>
+      )}
       <li>
         <Activelink to="/">Blogs</Activelink>
       </li>
