@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ToyContext } from "../../../App";
+import { Link } from "react-router-dom";
 
 const Alltoys = () => {
+  const { toys } = useContext(ToyContext);
   let log =
     "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (
@@ -24,7 +27,7 @@ const Alltoys = () => {
           </div>
         </div>
         <div className="col-span-3 p-3	border">
-          <table class="table-fixed border-separate w-full text-center text-black">
+          <table className="table-fixed border-separate w-full text-center text-black">
             <thead>
               <tr>
                 <th className="border border-slate-600">Seller</th>
@@ -36,54 +39,18 @@ const Alltoys = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="border border-slate-600">Mr. Bones</td>
-                <td className="border border-slate-600">Malcolm Lockyer</td>
-                <td className="border border-slate-600">Cetegory</td>
-                <td className="border border-slate-600">$12</td>
-                <td className="border border-slate-600">10</td>
-                <td className="border border-slate-600">View Details</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-600">Mr. Bones</td>
-                <td className="border border-slate-600">Malcolm Lockyer</td>
-                <td className="border border-slate-600">Cetegory</td>
-                <td className="border border-slate-600">$12</td>
-                <td className="border border-slate-600">10</td>
-                <td className="border border-slate-600">View Details</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-600">Mr. Bones</td>
-                <td className="border border-slate-600">Malcolm Lockyer</td>
-                <td className="border border-slate-600">Cetegory</td>
-                <td className="border border-slate-600">$12</td>
-                <td className="border border-slate-600">10</td>
-                <td className="border border-slate-600">View Details</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-600">Mr. Bones</td>
-                <td className="border border-slate-600">Malcolm Lockyer</td>
-                <td className="border border-slate-600">Cetegory</td>
-                <td className="border border-slate-600">$12</td>
-                <td className="border border-slate-600">10</td>
-                <td className="border border-slate-600">View Details</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-600">Mr. Bones</td>
-                <td className="border border-slate-600">Malcolm Lockyer</td>
-                <td className="border border-slate-600">Cetegory</td>
-                <td className="border border-slate-600">$12</td>
-                <td className="border border-slate-600">10</td>
-                <td className="border border-slate-600">View Details</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-600">Mr. Bones</td>
-                <td className="border border-slate-600">Malcolm Lockyer</td>
-                <td className="border border-slate-600">Cetegory</td>
-                <td className="border border-slate-600">$12</td>
-                <td className="border border-slate-600">10</td>
-                <td className="border border-slate-600">View Details</td>
-              </tr>
+              {toys.map((toy) => (
+                <tr key={toy._id}>
+                  <td className="border border-slate-600">{toy.name}</td>
+                  <td className="border border-slate-600">{toy.name}</td>
+                  <td className="border border-slate-600">{toy.category}</td>
+                  <td className="border border-slate-600">${toy.price}</td>
+                  <td className="border border-slate-600">{toy.name}</td>
+                  <td className="border border-slate-600">
+                    <Link to={`/toy/ ${toy._id}`}>View Details</Link>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
