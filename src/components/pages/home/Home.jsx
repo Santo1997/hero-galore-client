@@ -32,7 +32,7 @@ const Home = () => {
         </div>
         <div className="text-center my-5">
           <Link to={`/all_toys`}>
-            <button className="btn mx-auto  ">Show All</button>
+            <button className="btn mx-auto  btn-primary">Show All</button>
           </Link>
         </div>
       </div>

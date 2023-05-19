@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Latest = ({ lastItm }) => {
-  const { _id, name, description, price } = lastItm;
+  const { _id, toyName, description, price, rating } = lastItm;
   let log =
     "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (
@@ -12,7 +12,10 @@ const Latest = ({ lastItm }) => {
           <img src={log} className="w-full h-80" />
         </div>
         <div className="border p-5">
-          <h1 className="text-2xl mb-5">{name}</h1>
+          <h1 className="text-2xl mb-5">
+            {toyName}
+            <div className="badge badge-secondary ms-10">{rating}</div>
+          </h1>
           <p>{description}</p>
           <p>
             <span className="me-5">Price: ${price}</span>
@@ -35,7 +38,9 @@ const Latest = ({ lastItm }) => {
             </span>
           </p>
           <Link to={`/toy/${_id}`}>
-            <button className="btn btn-primary mt-10 mx-20">View More</button>
+            <button className="btn btn-info text-white mt-10 mx-5">
+              View More
+            </button>
           </Link>
         </div>
       </div>

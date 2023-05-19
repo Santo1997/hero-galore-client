@@ -18,9 +18,9 @@ const Category = ({ toysData }) => {
       </h1>
       <Tabs className="mb-3">
         <TabList className="grid grid-cols-3 justify-items-center w-1/3 mx-auto">
-          <Tab className="btn btn-outline me-2">Marvels Comics</Tab>
-          <Tab className="btn btn-outline me-2">Dc Comics</Tab>
-          <Tab className="btn btn-outline">Transformers</Tab>
+          <Tab className="btn btn-outline btn-info me-2">Marvels Comics</Tab>
+          <Tab className="btn btn-outline btn-info me-2">Dc Comics</Tab>
+          <Tab className="btn btn-outline btn-info">Transformers</Tab>
         </TabList>
 
         <TabPanel className="grid grid-cols-3 gap-3 mt-5">

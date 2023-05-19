@@ -8,7 +8,7 @@ const TProduct = ({ topItm }) => {
   let log =
     "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (
-    <div className="grid grid-cols-2 h-fit gap-5">
+    <div className="grid grid-cols-2 h-fit gap-5 ">
       <div className="grid grid-cols-1 gap-3 h-full ">
         {leftItm.map((left) => (
           <div
@@ -18,12 +18,18 @@ const TProduct = ({ topItm }) => {
             <figure>
               <img src={log} className="w-full" />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title">{left.name}</h2>
-              <p>{left.description}</p>
+            <div className="card-body p-14">
+              <h2 className="card-title text-white">
+                {left.toyName}
+                <div className="badge badge-secondary">{left.rating}</div>
+              </h2>
+              <p className="text-white">{left.description}</p>
+              <p className="text-white">Price: ${left.price}</p>
               <div className="card-actions justify-end">
-                <Link to={`toy/ ${left._id}`}>
-                  <button className="btn btn-primary">View Details</button>
+                <Link to={`toy/${left._id}`}>
+                  <button className="btn btn-sm btn-info text-white">
+                    View Details
+                  </button>
                 </Link>
               </div>
             </div>
@@ -34,11 +40,17 @@ const TProduct = ({ topItm }) => {
       {rightItm.map((right) => (
         <div className="card w-fit shadow-xl" key={right._id}>
           <div className="card-body">
-            <h2 className="card-title">{right.name}</h2>
+            <h2 className="card-title">
+              {right.toyName}
+              <div className="badge badge-secondary">{right.rating}</div>
+            </h2>
             <p>{right.description}</p>
+            <p>Price: ${right.price}</p>
             <div className="card-actions justify-end">
-              <Link to={`/toy/ ${right._id}`}>
-                <button className="btn btn-primary">View Details</button>
+              <Link to={`/toy/${right._id}`}>
+                <button className="btn btn-md btn-info text-white">
+                  View Details
+                </button>
               </Link>
             </div>
           </div>
