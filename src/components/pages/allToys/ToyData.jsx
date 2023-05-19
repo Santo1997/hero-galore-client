@@ -23,7 +23,7 @@ const ToyData = ({ itm }) => {
       </td>
       <td className="bg-gray-500">{description.slice(0, 35) + "...."}</td>
       <td className="bg-gray-500 ">{category}</td>
-      <td className="bg-gray-500">{price}</td>
+      <td className="bg-gray-500">${price}</td>
       <td className="bg-gray-500">{rating}</td>
       <td className="bg-gray-500">{quantity}</td>
       <td className="bg-gray-500">

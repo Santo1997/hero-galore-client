@@ -11,6 +11,7 @@ import Error from "../components/pages/error/Error";
 import { toysLoader } from "../components/loader/DataLoader";
 import PrivateRoutes from "./PrivateRoutes";
 import Mytoys from "../components/pages/myToy/Mytoys";
+import UpdateToy from "../components/pages/updateToys/UpdateToy";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <Mytoys />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update_toy/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateToy />
           </PrivateRoutes>
         ),
       },

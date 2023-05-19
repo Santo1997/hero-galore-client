@@ -1,0 +1,208 @@
+import React from "react";
+import useTitle from "../../../hooks/useTitle";
+
+const UpdateToy = () => {
+  useTitle("Update Toys");
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+  const handleUpdateToys = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const img = form.imgUrl.value;
+    const toyName = form.toyName.value;
+    const name = form.seller.value;
+    const email = form.sellerMail.value;
+    const category = form.category.value;
+    const price = parseInt(form.price.value);
+    const rating = parseInt(form.rating.value);
+    const quantity = parseInt(form.quantity.value);
+    const description = form.description.value;
+    const seller = { name, email };
+    const updateToyItm = {
+      img,
+      toyName,
+      category,
+      price,
+      rating,
+      quantity,
+      description,
+      seller,
+    };
+
+    form.reset();
+  };
+
+  return (
+    <div className="hero ">
+      <div className="hero-content flex-col w-full lg:w-3/6  ">
+        <div className="text-center lg:text-left">
+          <h1 className="text-5xl font-bold">Add A toy</h1>
+        </div>
+        <div className="card w-full shadow-2xl border">
+          <form onSubmit={handleUpdateToys} className="card-body ">
+            <div className="form-control grid grid-cols-4">
+              <label className="label">
+                <span className="label-text  text-black text-lg font-bold">
+                  Image Url:
+                </span>
+              </label>
+              <input
+                name="imgUrl"
+                type="text"
+                placeholder="Image Url"
+                className="input input-bordered setInput col-span-3"
+                required
+              />
+            </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label">
+                <span className="label-text  text-black text-lg font-bold">
+                  Toy Name:
+                </span>
+              </label>
+              <input
+                name="toyName"
+                type="text"
+                placeholder="Name"
+                className="input input-bordered setInput col-span-2"
+                required
+              />
+            </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label">
+                <span className="label-text  text-black text-lg font-bold">
+                  Seller Name:
+                </span>
+              </label>
+              <input
+                name="seller"
+                type="text"
+                placeholder="Seller Name"
+                className="input input-bordered setInput col-span-2"
+              />
+            </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label">
+                <span className="label-text text-black text-lg font-bold">
+                  Seller Email:
+                </span>
+              </label>
+              <input
+                name="sellerMail"
+                type="email"
+                placeholder="Seller Email"
+                className="input input-bordered setInput col-span-2"
+              />
+            </div>
+            <div className="grid grid-cols-5 gap-3 mt-3  text-lg font-bold">
+              <p className="col-span-2">Select Category:</p>
+              <div className="form-control ">
+                <label className="label cursor-pointer">
+                  <span className="label-text text-black">Cate 1</span>
+                  <input
+                    type="radio"
+                    required
+                    name="category"
+                    value="cate 1"
+                    className="radio checked:bg-green-500"
+                    onChange={handleCheckboxChange}
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer ">
+                  <span className="label-text  text-black">Cate 2</span>
+                  <input
+                    type="radio"
+                    required
+                    name="category"
+                    value="cate 2"
+                    className="radio checked:bg-green-500"
+                    onChange={handleCheckboxChange}
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer ">
+                  <span className="label-text  text-black">Cate 3</span>
+                  <input
+                    type="radio"
+                    required
+                    name="category"
+                    value="cate 3"
+                    className="radio checked:bg-green-500"
+                    onChange={handleCheckboxChange}
+                  />
+                </label>
+              </div>
+            </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label ">
+                <span className="label-text text-black text-lg font-bold">
+                  Price:
+                </span>
+              </label>
+              <input
+                name="price"
+                type="text"
+                placeholder="Price"
+                className="input col-span-2 input-bordered setInput"
+                required
+              />
+            </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label">
+                <span className="label-text text-black text-lg font-bold">
+                  Rating:
+                </span>
+              </label>
+              <input
+                name="rating"
+                type="text"
+                placeholder="Rating"
+                className="input input-bordered setInput col-span-2"
+                required
+              />
+            </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label">
+                <span className="label-text text-black text-lg font-bold">
+                  Available:
+                </span>
+              </label>
+              <input
+                name="quantity"
+                type="text"
+                placeholder="Available"
+                className="input input-bordered setInput col-span-2"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-black text-lg font-bold">
+                  Details:
+                </span>
+              </label>
+
+              <textarea
+                name="description"
+                placeholder="Details"
+                className="input input-bordered h-28 setInput"
+                required
+              ></textarea>
+            </div>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary w-fit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UpdateToy;

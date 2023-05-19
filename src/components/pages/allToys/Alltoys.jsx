@@ -25,7 +25,7 @@ const Alltoys = () => {
             <th className="bg-black">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {toys.map((itm) => (
             <ToyData itm={itm} key={itm._id} />
           ))}

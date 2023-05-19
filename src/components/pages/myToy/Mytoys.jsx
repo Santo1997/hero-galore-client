@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const Mytoys = () => {
+  useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToy, setMyToy] = useState([]);
 
@@ -41,7 +44,7 @@ const Mytoys = () => {
             <th className="bg-black">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {myToy.map((toy) => (
             <tr key={toy._id}>
               <td className="bg-gray-500">
@@ -60,12 +63,12 @@ const Mytoys = () => {
                 {toy.description.slice(0, 35) + "...."}
               </td>
               <td className="bg-gray-500">{toy.category}</td>
-              <td className="bg-gray-500">{toy.price}</td>
+              <td className="bg-gray-500">${toy.price}</td>
               <td className="bg-gray-500">{toy.rating}</td>
               <td className="bg-gray-500">{toy.quantity}</td>
               <td className="grid gap-3 bg-gray-500">
                 <button className="btn btn-xs btn-outline  btn-success">
-                  Update
+                  <Link to={`/update_toy/${toy._id}`}>Update</Link>
                 </button>
                 <button
                   onClick={() => handleDelete(toy._id)}
