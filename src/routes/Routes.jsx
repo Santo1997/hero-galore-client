@@ -10,6 +10,7 @@ import Signup from "../components/pages/signup/Signup";
 import Error from "../components/pages/error/Error";
 import { toysLoader } from "../components/loader/DataLoader";
 import PrivateRoutes from "./PrivateRoutes";
+import Mytoys from "../components/pages/myToy/Mytoys";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add_toy",
-        element: <Addtoys />,
+        element: (
+          <PrivateRoutes>
+            <Addtoys />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/my_toys",
+        element: (
+          <PrivateRoutes>
+            <Mytoys />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",

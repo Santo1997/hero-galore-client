@@ -7,7 +7,11 @@ const postToDB = (dataItm) => {
       body: JSON.stringify(dataItm),
     })
       .then((res) => res.json())
-      .then((data) =>  {toast.success('Toy Added')});
+      .then((data) =>  {
+        if(data.insertedId){
+          toast.success('Toy Added')
+        }
+      });
 };
 
 

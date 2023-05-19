@@ -30,7 +30,7 @@ const Links = () => {
       {user && (
         <>
           <li>
-            <Activelink to="/">My Toys</Activelink>
+            <Activelink to="/my_toys">My Toys</Activelink>
           </li>
           <li>
             <Activelink to="/add_toy">Add A Toy</Activelink>
