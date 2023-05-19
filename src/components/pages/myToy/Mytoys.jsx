@@ -11,6 +11,19 @@ const Mytoys = () => {
       .then((data) => setMyToy(data));
   }, []);
 
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/toys/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const rest = myToy.filter((toys) => toys._id != id);
+          setMyToy(rest);
+        }
+      });
+  };
+
   let log =
     "https://i.ibb.co/f27tYN5/depositphotos-411005388-stock-photo-profile-picture-of-smiling-30s.webp";
   return (
@@ -30,7 +43,7 @@ const Mytoys = () => {
         </thead>
         <tbody>
           {myToy.map((toy) => (
-            <tr>
+            <tr key={toy._id}>
               <td className="bg-gray-500">
                 <div className="flex items-center space-x-3">
                   <div className="avatar">
@@ -54,7 +67,10 @@ const Mytoys = () => {
                 <button className="btn btn-xs btn-outline  btn-success">
                   Update
                 </button>
-                <button className="btn btn-xs btn-outline  btn-error ">
+                <button
+                  onClick={() => handleDelete(toy._id)}
+                  className="btn btn-xs btn-outline  btn-error "
+                >
                   Delete
                 </button>
               </td>
