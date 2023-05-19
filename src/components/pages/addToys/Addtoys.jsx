@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useTitle from "../../../hooks/useTitle";
+import { postToDB } from "../../../utilities/apiFetch";
 
 const Addtoys = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -33,13 +34,8 @@ const Addtoys = () => {
       seller,
     };
 
-    fetch("http://localhost:5000/toys", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(newToyItm),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    postToDB(newToyItm);
+    form.reset();
   };
 
   return (
@@ -104,7 +100,6 @@ const Addtoys = () => {
                 className="input input-bordered setInput col-span-2"
               />
             </div>
-
             <div className="grid grid-cols-5 gap-3 mt-3  text-lg font-bold">
               <p className="col-span-2">Select Category:</p>
               <div className="form-control ">
