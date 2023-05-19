@@ -12,8 +12,7 @@ const Alltoys = () => {
 
   return (
     <div className="overflow-x-auto w-full pb-5">
-      <table className="table text-white  w-full ">
-        {/* head */}
+      <table className="table table-zebra text-white  w-full ">
         <thead className="text-center">
           <tr>
             <th className="bg-black">Toy Image</th>
@@ -27,7 +26,9 @@ const Alltoys = () => {
           </tr>
         </thead>
         <tbody>
-          <ToyData />
+          {toys.map((itm) => (
+            <ToyData itm={itm} key={itm._id} />
+          ))}
         </tbody>
       </table>
     </div>

@@ -34,7 +34,7 @@ const Latest = ({ lastItm }) => {
               Romit Gabani
             </span>
           </p>
-          <Link to={`/toy/ ${_id}`}>
+          <Link to={`/toy/${_id}`}>
             <button className="btn btn-primary mt-10 mx-20">View More</button>
           </Link>
         </div>

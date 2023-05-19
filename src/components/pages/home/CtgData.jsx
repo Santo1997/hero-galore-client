@@ -19,7 +19,7 @@ const CtgData = ({ data }) => {
           </h2>
           <p>Price: ${price}</p>
           <div className="card-actions justify-end">
-            <Link to={`/toy/ ${_id}`}>
+            <Link to={`/toy/${_id}`}>
               <div className="badge badge-outline">View Details</div>
             </Link>
           </div>
