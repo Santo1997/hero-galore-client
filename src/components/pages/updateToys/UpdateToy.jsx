@@ -1,8 +1,21 @@
 import React from "react";
 import useTitle from "../../../hooks/useTitle";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateToy = () => {
   useTitle("Update Toys");
+  const toyData = useLoaderData();
+  const {
+    _id,
+    img,
+    toyName,
+    price,
+    rating,
+    quantity,
+    category,
+    description,
+    seller,
+  } = toyData;
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
@@ -32,14 +45,22 @@ const UpdateToy = () => {
       seller,
     };
 
-    form.reset();
+    fetch(`http://localhost:5000/toys/${_id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(updateToyItm),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
     <div className="hero ">
       <div className="hero-content flex-col w-full lg:w-3/6  ">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Add A toy</h1>
+          <h1 className="text-5xl font-bold">Update Toy: {toyName}</h1>
         </div>
         <div className="card w-full shadow-2xl border">
           <form onSubmit={handleUpdateToys} className="card-body ">
@@ -52,6 +73,7 @@ const UpdateToy = () => {
               <input
                 name="imgUrl"
                 type="text"
+                defaultValue={img}
                 placeholder="Image Url"
                 className="input input-bordered setInput col-span-3"
                 required
@@ -66,6 +88,7 @@ const UpdateToy = () => {
               <input
                 name="toyName"
                 type="text"
+                defaultValue={toyName}
                 placeholder="Name"
                 className="input input-bordered setInput col-span-2"
                 required
@@ -80,6 +103,7 @@ const UpdateToy = () => {
               <input
                 name="seller"
                 type="text"
+                defaultValue={seller.name}
                 placeholder="Seller Name"
                 className="input input-bordered setInput col-span-2"
               />
@@ -93,51 +117,24 @@ const UpdateToy = () => {
               <input
                 name="sellerMail"
                 type="email"
+                defaultValue={seller.email}
                 placeholder="Seller Email"
                 className="input input-bordered setInput col-span-2"
               />
             </div>
-            <div className="grid grid-cols-5 gap-3 mt-3  text-lg font-bold">
-              <p className="col-span-2">Select Category:</p>
-              <div className="form-control ">
-                <label className="label cursor-pointer">
-                  <span className="label-text text-black">Cate 1</span>
-                  <input
-                    type="radio"
-                    required
-                    name="category"
-                    value="cate 1"
-                    className="radio checked:bg-green-500"
-                    onChange={handleCheckboxChange}
-                  />
-                </label>
-              </div>
-              <div className="form-control">
-                <label className="label cursor-pointer ">
-                  <span className="label-text  text-black">Cate 2</span>
-                  <input
-                    type="radio"
-                    required
-                    name="category"
-                    value="cate 2"
-                    className="radio checked:bg-green-500"
-                    onChange={handleCheckboxChange}
-                  />
-                </label>
-              </div>
-              <div className="form-control">
-                <label className="label cursor-pointer ">
-                  <span className="label-text  text-black">Cate 3</span>
-                  <input
-                    type="radio"
-                    required
-                    name="category"
-                    value="cate 3"
-                    className="radio checked:bg-green-500"
-                    onChange={handleCheckboxChange}
-                  />
-                </label>
-              </div>
+            <div className="form-control grid grid-cols-3">
+              <label className="label">
+                <span className="label-text text-black text-lg font-bold">
+                  Cetegory:
+                </span>
+              </label>
+              <input
+                name="category"
+                type="text"
+                defaultValue={category}
+                placeholder="Seller Email"
+                className="input input-bordered setInput col-span-2"
+              />
             </div>
             <div className="form-control grid grid-cols-3">
               <label className="label ">
@@ -148,6 +145,7 @@ const UpdateToy = () => {
               <input
                 name="price"
                 type="text"
+                defaultValue={price}
                 placeholder="Price"
                 className="input col-span-2 input-bordered setInput"
                 required
@@ -162,6 +160,7 @@ const UpdateToy = () => {
               <input
                 name="rating"
                 type="text"
+                defaultValue={rating}
                 placeholder="Rating"
                 className="input input-bordered setInput col-span-2"
                 required
@@ -176,6 +175,7 @@ const UpdateToy = () => {
               <input
                 name="quantity"
                 type="text"
+                defaultValue={quantity}
                 placeholder="Available"
                 className="input input-bordered setInput col-span-2"
                 required
@@ -187,16 +187,16 @@ const UpdateToy = () => {
                   Details:
                 </span>
               </label>
-
               <textarea
                 name="description"
+                defaultValue={description}
                 placeholder="Details"
                 className="input input-bordered h-28 setInput"
                 required
               ></textarea>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary w-fit">Submit</button>
+              <button className="btn btn-primary w-fit">Update</button>
             </div>
           </form>
         </div>
