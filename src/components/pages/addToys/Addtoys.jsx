@@ -100,16 +100,16 @@ const Addtoys = () => {
                 className="input input-bordered setInput col-span-2"
               />
             </div>
-            <div className="grid grid-cols-5 gap-3 mt-3  text-lg font-bold">
+            <div className="grid grid-cols-6 gap-3 mt-3  text-lg font-bold">
               <p className="col-span-2">Select Category:</p>
               <div className="form-control ">
                 <label className="label cursor-pointer">
-                  <span className="label-text text-black">Cate 1</span>
+                  <span className="label-text text-black">Marvel</span>
                   <input
                     type="radio"
                     required
                     name="category"
-                    value="cate 1"
+                    value="Marvel"
                     className="radio checked:bg-green-500"
                     onChange={handleCheckboxChange}
                   />
@@ -117,25 +117,25 @@ const Addtoys = () => {
               </div>
               <div className="form-control">
                 <label className="label cursor-pointer ">
-                  <span className="label-text  text-black">Cate 2</span>
+                  <span className="label-text  text-black">DC</span>
                   <input
                     type="radio"
                     required
                     name="category"
-                    value="cate 2"
+                    value="DC"
                     className="radio checked:bg-green-500"
                     onChange={handleCheckboxChange}
                   />
                 </label>
               </div>
-              <div className="form-control">
+              <div className="form-control col-span-2">
                 <label className="label cursor-pointer ">
-                  <span className="label-text  text-black">Cate 3</span>
+                  <span className="label-text  text-black">Transformers</span>
                   <input
                     type="radio"
                     required
                     name="category"
-                    value="cate 3"
+                    value="Transformers"
                     className="radio checked:bg-green-500"
                     onChange={handleCheckboxChange}
                   />
@@ -199,7 +199,7 @@ const Addtoys = () => {
               ></textarea>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary w-fit">Submit</button>
+              <button className="btn btn-primary w-fit">Add Toy</button>
             </div>
           </form>
         </div>

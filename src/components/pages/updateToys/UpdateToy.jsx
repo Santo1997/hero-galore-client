@@ -1,6 +1,7 @@
 import React from "react";
 import useTitle from "../../../hooks/useTitle";
 import { useLoaderData } from "react-router-dom";
+import { putToDB } from "../../../utilities/apiFetch";
 
 const UpdateToy = () => {
   useTitle("Update Toys");
@@ -45,15 +46,7 @@ const UpdateToy = () => {
       seller,
     };
 
-    fetch(`http://localhost:5000/toys/${_id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(updateToyItm),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    putToDB(_id, updateToyItm);
   };
 
   return (
@@ -196,7 +189,7 @@ const UpdateToy = () => {
               ></textarea>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary w-fit">Update</button>
+              <button className="btn btn-primary w-fit">Update Toy</button>
             </div>
           </form>
         </div>

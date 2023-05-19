@@ -14,5 +14,22 @@ const postToDB = (dataItm) => {
       });
 };
 
+const putToDB = (dataID,dataItm) =>{
+  fetch(`http://localhost:5000/toys/${dataID}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(dataItm),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          if (data.modifiedCount > 0) {
+            toast.success("Toy Updated");
+          }else{
+            toast.error("Need Some Update");
+          }
+        });
+};
 
-export { postToDB };
+
+export { postToDB, putToDB };
