@@ -6,46 +6,19 @@ import { putToDB } from "../../../utilities/apiFetch";
 const UpdateToy = () => {
   useTitle("Update Toys");
   const toyData = useLoaderData();
-  const {
-    _id,
-    img,
-    toyName,
-    price,
-    rating,
-    quantity,
-    category,
-    description,
-    seller,
-  } = toyData;
-
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
+  const { _id, toyName, price, quantity, description } = toyData;
 
   const handleUpdateToys = (event) => {
     event.preventDefault();
     const form = event.target;
-    const img = form.imgUrl.value;
-    const toyName = form.toyName.value;
-    const name = form.seller.value;
-    const email = form.sellerMail.value;
-    const category = form.category.value;
     const price = parseInt(form.price.value);
-    const rating = parseInt(form.rating.value);
     const quantity = parseInt(form.quantity.value);
     const description = form.description.value;
-    const seller = { name, email };
     const updateToyItm = {
-      img,
-      toyName,
-      category,
       price,
-      rating,
       quantity,
       description,
-      seller,
     };
-
     putToDB(_id, updateToyItm);
   };
 
@@ -57,78 +30,6 @@ const UpdateToy = () => {
         </div>
         <div className="card w-full shadow-2xl border">
           <form onSubmit={handleUpdateToys} className="card-body ">
-            <div className="form-control grid grid-cols-4">
-              <label className="label">
-                <span className="label-text  text-black text-lg font-bold">
-                  Image Url:
-                </span>
-              </label>
-              <input
-                name="imgUrl"
-                type="text"
-                defaultValue={img}
-                placeholder="Image Url"
-                className="input input-bordered setInput col-span-3"
-                required
-              />
-            </div>
-            <div className="form-control grid grid-cols-3">
-              <label className="label">
-                <span className="label-text  text-black text-lg font-bold">
-                  Toy Name:
-                </span>
-              </label>
-              <input
-                name="toyName"
-                type="text"
-                defaultValue={toyName}
-                placeholder="Name"
-                className="input input-bordered setInput col-span-2"
-                required
-              />
-            </div>
-            <div className="form-control grid grid-cols-3">
-              <label className="label">
-                <span className="label-text  text-black text-lg font-bold">
-                  Seller Name:
-                </span>
-              </label>
-              <input
-                name="seller"
-                type="text"
-                defaultValue={seller.name}
-                placeholder="Seller Name"
-                className="input input-bordered setInput col-span-2"
-              />
-            </div>
-            <div className="form-control grid grid-cols-3">
-              <label className="label">
-                <span className="label-text text-black text-lg font-bold">
-                  Seller Email:
-                </span>
-              </label>
-              <input
-                name="sellerMail"
-                type="email"
-                defaultValue={seller.email}
-                placeholder="Seller Email"
-                className="input input-bordered setInput col-span-2"
-              />
-            </div>
-            <div className="form-control grid grid-cols-3">
-              <label className="label">
-                <span className="label-text text-black text-lg font-bold">
-                  Cetegory:
-                </span>
-              </label>
-              <input
-                name="category"
-                type="text"
-                defaultValue={category}
-                placeholder="Seller Email"
-                className="input input-bordered setInput col-span-2"
-              />
-            </div>
             <div className="form-control grid grid-cols-3">
               <label className="label ">
                 <span className="label-text text-black text-lg font-bold">
@@ -141,21 +42,6 @@ const UpdateToy = () => {
                 defaultValue={price}
                 placeholder="Price"
                 className="input col-span-2 input-bordered setInput"
-                required
-              />
-            </div>
-            <div className="form-control grid grid-cols-3">
-              <label className="label">
-                <span className="label-text text-black text-lg font-bold">
-                  Rating:
-                </span>
-              </label>
-              <input
-                name="rating"
-                type="text"
-                defaultValue={rating}
-                placeholder="Rating"
-                className="input input-bordered setInput col-span-2"
                 required
               />
             </div>

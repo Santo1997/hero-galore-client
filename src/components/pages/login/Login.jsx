@@ -86,9 +86,11 @@ const Login = () => {
             </div>
             <p className="text-sm">
               Create an account?
-              <span className="ms-1 underline  hover:text-red-500">
-                <Link to="/signUp">Signup</Link>
-              </span>
+              <Link to="/signUp">
+                <span className="ms-1 underline  hover:text-red-500">
+                  Signup
+                </span>
+              </Link>
             </p>
           </form>
           <div className="divider">OR Go With</div>

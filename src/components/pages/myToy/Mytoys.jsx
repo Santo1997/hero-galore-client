@@ -2,21 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import useTitle from "../../../hooks/useTitle";
+import { toast } from "react-hot-toast";
 
 const Mytoys = () => {
   useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToy, setMyToy] = useState([]);
+  const [sort, setSort] = useState("");
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/usertoy?user=${user.email}`)
+    fetch(`http://localhost:5000/usertoy?user=${user.email}&sort=${sort}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToy(data);
         setLoader(false);
       });
-  }, []);
+  }, [sort]);
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/toys/${id}`, {
@@ -27,6 +29,7 @@ const Mytoys = () => {
         if (data.deletedCount > 0) {
           const rest = myToy.filter((toys) => toys._id != id);
           setMyToy(rest);
+          toast.success("Item Deleted");
         }
       });
   };
@@ -46,9 +49,11 @@ const Mytoys = () => {
                     <p className="my-10">
                       <progress className="progress w-56"></progress>
                     </p>
-                    <button className="btn btn-info btn-md text-white">
-                      <Link to="/add_toy">Add A toy</Link>
-                    </button>
+                    <Link to="/add_toy">
+                      <button className="btn btn-info btn-md text-white">
+                        Add A toy
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -56,6 +61,25 @@ const Mytoys = () => {
           ) : (
             <>
               <div className="overflow-x-auto w-full pb-5">
+                <div className="text-right my-5">
+                  <div className="btn-group">
+                    <button className="btn btn-outline btn-disabled bg-white btn-info w-36 me-3 text-lg">
+                      Sort By:
+                    </button>
+                    <button
+                      onClick={() => setSort("asc")}
+                      className="btn btn-outline btn-info w-36 me-3"
+                    >
+                      Ascending
+                    </button>
+                    <button
+                      onClick={() => setSort("desc")}
+                      className="btn btn-outline btn-info w-36 "
+                    >
+                      Descending
+                    </button>
+                  </div>
+                </div>
                 <table className="table text-white  w-full ">
                   <thead className="text-center">
                     <tr>
@@ -92,9 +116,12 @@ const Mytoys = () => {
                         <td className="bg-gray-500">{toy.rating}</td>
                         <td className="bg-gray-500">{toy.quantity}</td>
                         <td className="grid gap-3 bg-gray-500">
-                          <button className="btn btn-xs btn-outline  btn-success">
-                            <Link to={`/update_toy/${toy._id}`}>Update</Link>
-                          </button>
+                          <Link to={`/update_toy/${toy._id}`}>
+                            <button className="btn btn-xs btn-outline w-full btn-success">
+                              Update
+                            </button>
+                          </Link>
+
                           <button
                             onClick={() => handleDelete(toy._id)}
                             className="btn btn-xs btn-outline  btn-error "

@@ -25,9 +25,11 @@ const ToyData = ({ itm }) => {
       <td className="bg-gray-500">{rating}</td>
       <td className="bg-gray-500">{quantity}</td>
       <td className="bg-gray-500">
-        <button className="btn btn-xs btn-outline btn-info">
-          <Link to={`/toy/${_id}`}>View Details</Link>
-        </button>
+        <Link to={`/toy/${_id}`}>
+          <button className="btn btn-xs btn-outline btn-info">
+            View Details
+          </button>
+        </Link>
       </td>
     </tr>
   );
