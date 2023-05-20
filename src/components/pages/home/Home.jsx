@@ -16,7 +16,7 @@ const Home = () => {
 
   const galItm = toysData.toys.slice(0, 4);
   const lstItm = toysData.toys.slice(0, 1);
-  const topItm = toysData.toys.slice(0, 3);
+  const topItm = toysData.toys.slice(0, 4);
 
   return (
     <div>

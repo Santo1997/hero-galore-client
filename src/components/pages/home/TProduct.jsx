@@ -2,13 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TProduct = ({ topItm }) => {
-  const leftItm = topItm.slice(0, 2);
-  const rightItm = topItm.slice(2, 3);
+  const leftItm = topItm.slice(0, 3);
+  const rightItm = topItm.slice(3, 4);
 
-  let log =
-    "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (
-    <div className="grid grid-cols-2 h-fit gap-5 ">
+    <div className="grid grid-cols-2 gap-5 ">
       <div className="grid grid-cols-1 gap-3 h-full ">
         {leftItm.map((left) => (
           <div
@@ -16,7 +14,7 @@ const TProduct = ({ topItm }) => {
             key={left._id}
           >
             <figure>
-              <img src={log} className="w-full" />
+              <img src={left.img} />
             </figure>
             <div className="card-body p-14">
               <h2 className="card-title text-white">
@@ -55,7 +53,7 @@ const TProduct = ({ topItm }) => {
             </div>
           </div>
           <figure>
-            <img src={log} />
+            <img src={right.img} />
           </figure>
         </div>
       ))}

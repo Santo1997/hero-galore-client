@@ -27,8 +27,24 @@ const Mytoys = () => {
       });
   };
 
-  let log =
-    "https://i.ibb.co/f27tYN5/depositphotos-411005388-stock-photo-profile-picture-of-smiling-30s.webp";
+  if (myToy.length == 0) {
+    return (
+      <div className="hero">
+        <div className="hero-content text-center">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold">No Toy Added</h1>
+            <p className="my-10">
+              <progress className="progress w-56"></progress>
+            </p>
+            <button className="btn btn-info btn-md text-white">
+              <Link to="/add_toy">Add A toy</Link>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-x-auto w-full pb-5">
       <table className="table text-white  w-full ">
@@ -51,7 +67,7 @@ const Mytoys = () => {
                 <div className="flex items-center space-x-3">
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
-                      <img src={log} />
+                      <img src={img} />
                     </div>
                   </div>
                 </div>
@@ -60,7 +76,7 @@ const Mytoys = () => {
                 <div className="font-bold">{toy.toyName}</div>
               </td>
               <td className="bg-gray-500">
-                {toy.description.slice(0, 35) + "...."}
+                {toy.description.slice(0, 40) + "..."}
               </td>
               <td className="bg-gray-500">{toy.category}</td>
               <td className="bg-gray-500">${toy.price}</td>

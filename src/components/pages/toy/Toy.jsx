@@ -9,11 +9,9 @@ const Toy = () => {
 
   useTitle("Toy Details");
 
-  let log =
-    "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (
     <div className="text-black ">
-      <img src={log} className="w-3/6" />
+      <img src={img} className="w-3/6" />
       <h1 className=" text-3xl font-bold my-3">{toyName}</h1>
       <ul className="ms-3 list-disc list-inside">
         <li>Seller: {seller.name}</li>

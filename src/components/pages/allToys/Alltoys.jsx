@@ -8,8 +8,6 @@ const Alltoys = () => {
   const { toys } = useContext(ToyContext);
   useTitle("All Toys");
 
-  console.log(toys);
-
   return (
     <div className="overflow-x-auto w-full pb-5">
       <table className="table table-zebra text-white  w-full ">

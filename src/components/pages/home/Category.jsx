@@ -11,6 +11,10 @@ const Category = ({ toysData }) => {
     (categor) => categor.category === "Transformers"
   );
 
+  const marvelItm = marvelCate.slice(0, 3);
+  const dcItm = dcCate.slice(0, 3);
+  const transfronItm = transformCate.slice(0, 3);
+
   return (
     <div>
       <h1 className="text-black font-bold text-4xl text-center mb-10">
@@ -24,17 +28,17 @@ const Category = ({ toysData }) => {
         </TabList>
 
         <TabPanel className="grid grid-cols-3 gap-3 mt-5">
-          {marvelCate.map((marvel) => (
+          {marvelItm.map((marvel) => (
             <CtgData data={marvel} key={marvel._id} />
           ))}
         </TabPanel>
         <TabPanel className="grid grid-cols-3 gap-3">
-          {dcCate.map((dc) => (
+          {dcItm.map((dc) => (
             <CtgData data={dc} key={dc._id} />
           ))}
         </TabPanel>
         <TabPanel className="grid grid-cols-3 gap-3">
-          {transformCate.map((transform) => (
+          {transfronItm.map((transform) => (
             <CtgData data={transform} key={transform._id} />
           ))}
         </TabPanel>

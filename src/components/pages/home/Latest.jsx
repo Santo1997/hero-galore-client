@@ -2,14 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Latest = ({ lastItm }) => {
-  const { _id, toyName, description, price, rating } = lastItm;
-  let log =
-    "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
+  const { _id, img, toyName, description, price, rating } = lastItm;
+
   return (
     <div className=" relative w-full h-80">
       <div className="grid grid-cols-2 text-black">
         <div>
-          <img src={log} className="w-full h-80" />
+          <img src={img} className="w-full h-80" />
         </div>
         <div className="border p-5">
           <h1 className="text-2xl mb-5">

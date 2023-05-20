@@ -2,16 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CtgData = ({ data }) => {
-  const { _id, img, toyName, category, price, rating, quantity, description } =
-    data;
+  const { _id, img, toyName, price, rating, description } = data;
 
-  let log =
-    "https://cdn.cdnparenting.com/articles/2018/08/576897157-H-1-1024x700.jpg";
   return (
     <>
       <div className="card w-96 shadow-xl">
         <figure>
-          <img src={log} />
+          <img src={img} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
