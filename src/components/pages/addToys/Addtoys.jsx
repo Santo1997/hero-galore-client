@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import useTitle from "../../../hooks/useTitle";
 import { postToDB } from "../../../utilities/apiFetch";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Addtoys = () => {
+  const { user } = useContext(AuthContext);
   const [isChecked, setIsChecked] = useState(false);
   useTitle("Add Toys");
 
@@ -83,6 +85,7 @@ const Addtoys = () => {
               <input
                 name="seller"
                 type="text"
+                defaultValue={user.displayName}
                 placeholder="Seller Name"
                 className="input input-bordered setInput col-span-2"
               />
@@ -96,6 +99,7 @@ const Addtoys = () => {
               <input
                 name="sellerMail"
                 type="email"
+                defaultValue={user.email}
                 placeholder="Seller Email"
                 className="input input-bordered setInput col-span-2"
               />

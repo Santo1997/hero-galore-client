@@ -17,7 +17,7 @@ const ToyData = ({ itm }) => {
         </div>
       </td>
       <td className="bg-gray-500 w-0">
-        <div className="font-bold">{toyName}</div>
+        <h1 className="font-bold">{toyName}</h1>
       </td>
       <td className="bg-gray-500">{description.slice(0, 40) + "..."}</td>
       <td className="bg-gray-500 ">{category}</td>
