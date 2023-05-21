@@ -12,6 +12,7 @@ import { toysLoader } from "../components/loader/DataLoader";
 import PrivateRoutes from "./PrivateRoutes";
 import Mytoys from "../components/pages/myToy/Mytoys";
 import UpdateToy from "../components/pages/updateToys/UpdateToy";
+import Blog from "../components/pages/blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/toys/${params.id}`),
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
       {
         path: "/login",

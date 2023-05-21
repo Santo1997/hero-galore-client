@@ -20,6 +20,8 @@ function App() {
       return useTitle("Add A Toy");
     } else if (location.pathname === "/my_toys") {
       return useTitle("My Toys");
+    } else if (location.pathname === "/blog") {
+      return useTitle("Blog");
     } else if (location.pathname === "/login") {
       return useTitle("Login");
     } else if (location.pathname === "/signup") {

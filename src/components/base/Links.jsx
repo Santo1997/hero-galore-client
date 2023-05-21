@@ -38,7 +38,7 @@ const Links = () => {
         </>
       )}
       <li>
-        <Activelink to="/">Blogs</Activelink>
+        <Activelink to="/blog">Blogs</Activelink>
       </li>
       {user ? (
         <>
