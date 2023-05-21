@@ -38,8 +38,8 @@ const Home = () => {
       <DeleveryInfo />
 
       <div>
-        <h1 className="text-center text-4xl mb-10 text-black font-bold text-green-500">
-          Latest Blog
+        <h1 className="text-center text-4xl mb-10 font-bold text-green-500">
+          Latest Item
         </h1>
         <div>
           {lstItm.map((lst) => (

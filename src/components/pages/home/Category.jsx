@@ -16,7 +16,7 @@ const Category = ({ toysData }) => {
   const transfronItm = transformCate.slice(0, 3);
 
   return (
-    <div>
+    <div data-aos="fade-up">
       <h1 className="text-green-500 font-bold text-3xl lg:text-4xl text-center mb-10">
         Shop by category
       </h1>

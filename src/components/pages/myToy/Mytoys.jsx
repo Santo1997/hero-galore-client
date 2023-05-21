@@ -19,17 +19,21 @@ const Mytoys = () => {
   }, [sort]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/toys/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const rest = myToy.filter((toys) => toys._id != id);
-          setMyToy(rest);
-          toast.success("Item Deleted");
-        }
-      });
+    const confirm = window.confirm("Want to delete item?");
+
+    if (confirm) {
+      fetch(`http://localhost:5000/toys/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const rest = myToy.filter((toys) => toys._id != id);
+            setMyToy(rest);
+            toast.success("Item Deleted");
+          }
+        });
+    }
   };
 
   return (

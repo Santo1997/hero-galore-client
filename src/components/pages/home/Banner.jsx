@@ -4,6 +4,7 @@ const Banner = () => {
   return (
     <div
       className="hero lg:h-[calc(75vh)] rounded-xl mb-10 overflow-hidden"
+      data-aos="zoom-in"
       style={{
         backgroundImage: `url("https://i.ibb.co/drZ4QRC/fotor-2023-5-20-13-13-2.jpg")`,
       }}

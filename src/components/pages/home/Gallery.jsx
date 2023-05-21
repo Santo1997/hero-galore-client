@@ -6,7 +6,7 @@ const Gallery = ({ toy }) => {
 
   return (
     <>
-      <div className="card card-compact w-fit  shadow-xl">
+      <div className="card card-compact w-fit  shadow-xl" data-aos="fade-up">
         <figure>
           <img src={img} />
         </figure>

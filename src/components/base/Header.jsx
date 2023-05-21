@@ -5,11 +5,9 @@ import Links from "./Links";
 const Header = () => {
   return (
     <>
-      {/* navbar bg-slate-800 w-full h-20 text-white mb-5 font-bold fixed top-0
-      left-0 z-20 */}
       <div
         className="navbar bg-slate-800 w-full h-20 text-white mb-5 font-bold fixed top-0
-      left-0 z-50 "
+      left-0 z-50"
       >
         <div className="navbar-start">
           <div className=" dropdown">

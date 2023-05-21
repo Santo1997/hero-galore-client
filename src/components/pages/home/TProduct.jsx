@@ -7,7 +7,7 @@ const TProduct = ({ topItm }) => {
 
   return (
     <div className="grid lg:grid-cols-2 gap-5 ">
-      <div className="grid grid-cols-1 gap-3 h-full ">
+      <div className="grid grid-cols-1 gap-3 h-full" data-aos="fade-down-right">
         {leftItm.map((left) => (
           <div
             className="card h-72 shadow-xl image-full overflow-hidden"
