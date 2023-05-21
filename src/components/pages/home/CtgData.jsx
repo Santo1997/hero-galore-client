@@ -6,7 +6,7 @@ const CtgData = ({ data }) => {
 
   return (
     <>
-      <div className="card w-96 shadow-xl">
+      <div className="card lg:w-96 shadow-xl">
         <figure>
           <img src={img} />
         </figure>

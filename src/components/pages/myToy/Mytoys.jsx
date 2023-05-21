@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Link } from "react-router-dom";
-import useTitle from "../../../hooks/useTitle";
 import { toast } from "react-hot-toast";
 
 const Mytoys = () => {
-  useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToy, setMyToy] = useState([]);
   const [sort, setSort] = useState("");

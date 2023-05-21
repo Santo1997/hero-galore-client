@@ -6,7 +6,7 @@ const TProduct = ({ topItm }) => {
   const rightItm = topItm.slice(3, 4);
 
   return (
-    <div className="grid grid-cols-2 gap-5 ">
+    <div className="grid lg:grid-cols-2 gap-5 ">
       <div className="grid grid-cols-1 gap-3 h-full ">
         {leftItm.map((left) => (
           <div

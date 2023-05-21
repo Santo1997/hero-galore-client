@@ -76,7 +76,7 @@ const Links = () => {
             <Activelink to="/login">Login</Activelink>
           </li>
           <li>
-            <Activelink to="/signUp">SignUp</Activelink>
+            <Activelink to="/signup">SignUp</Activelink>
           </li>
         </>
       )}

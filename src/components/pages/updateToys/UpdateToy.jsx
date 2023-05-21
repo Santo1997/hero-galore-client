@@ -1,11 +1,11 @@
 import React from "react";
-import useTitle from "../../../hooks/useTitle";
 import { useLoaderData } from "react-router-dom";
 import { putToDB } from "../../../utilities/apiFetch";
+import useTitle from "../../../hooks/useTitle";
 
 const UpdateToy = () => {
-  useTitle("Update Toys");
   const toyData = useLoaderData();
+  useTitle("Update Toy");
   const { _id, toyName, price, quantity, description } = toyData;
 
   const handleUpdateToys = (event) => {

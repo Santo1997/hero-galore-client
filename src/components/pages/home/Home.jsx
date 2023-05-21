@@ -7,12 +7,9 @@ import DeleveryInfo from "./DeleveryInfo";
 import Latest from "./Latest";
 import { ToyContext } from "../../../App";
 import { Link } from "react-router-dom";
-import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
   const toysData = useContext(ToyContext);
-
-  useTitle("Home");
 
   const galItm = toysData.toys.slice(0, 4);
   const lstItm = toysData.toys.slice(0, 1);
@@ -22,10 +19,10 @@ const Home = () => {
     <div>
       <Banner />
       <div>
-        <h1 className="text-center text-4xl mb-10 text-black font-bold">
+        <h1 className="text-center text-3xl lg:text-4xl mb-10 font-bold text-green-500">
           Gallery
         </h1>
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid lg:grid-cols-4 gap-3">
           {galItm.map((toy) => (
             <Gallery toy={toy} key={toy._id} />
           ))}
@@ -41,7 +38,7 @@ const Home = () => {
       <DeleveryInfo />
 
       <div>
-        <h1 className="text-center text-4xl mb-10 text-black font-bold">
+        <h1 className="text-center text-4xl mb-10 text-black font-bold text-green-500">
           Latest Blog
         </h1>
         <div>
@@ -52,7 +49,7 @@ const Home = () => {
       </div>
 
       <div className="my-10">
-        <h1 className="text-center text-4xl mb-10 text-black font-bold">
+        <h1 className="text-center text-4xl mb-10 font-bold text-green-500">
           Top Products
         </h1>
         <TProduct topItm={topItm} />

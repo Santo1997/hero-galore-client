@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import useTitle from "../../../hooks/useTitle";
 import ToyData from "./toyData";
 import SearchBar from "./SearchBar";
 
@@ -25,8 +24,6 @@ const Alltoys = () => {
     );
     setFilteredToys(filtered);
   };
-
-  useTitle("All Toys");
 
   return (
     <>

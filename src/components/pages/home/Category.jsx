@@ -17,27 +17,27 @@ const Category = ({ toysData }) => {
 
   return (
     <div>
-      <h1 className="text-black font-bold text-4xl text-center mb-10">
+      <h1 className="text-green-500 font-bold text-3xl lg:text-4xl text-center mb-10">
         Shop by category
       </h1>
       <Tabs className="mb-3">
-        <TabList className="grid grid-cols-3 justify-items-center w-1/3 mx-auto">
+        <TabList className="grid grid-cols-3 lg:justify-items-center w-full lg:w-1/3 lg:mx-auto">
           <Tab className="btn btn-outline btn-info me-2">Marvels Comics</Tab>
           <Tab className="btn btn-outline btn-info me-2">Dc Comics</Tab>
           <Tab className="btn btn-outline btn-info">Transformers</Tab>
         </TabList>
 
-        <TabPanel className="grid grid-cols-3 gap-3 mt-5">
+        <TabPanel className="grid lg:grid-cols-3 gap-3 mt-5">
           {marvelItm.map((marvel) => (
             <CtgData data={marvel} key={marvel._id} />
           ))}
         </TabPanel>
-        <TabPanel className="grid grid-cols-3 gap-3">
+        <TabPanel className="grid lg:grid-cols-3 gap-3">
           {dcItm.map((dc) => (
             <CtgData data={dc} key={dc._id} />
           ))}
         </TabPanel>
-        <TabPanel className="grid grid-cols-3 gap-3">
+        <TabPanel className="grid lg:grid-cols-3 gap-3">
           {transfronItm.map((transform) => (
             <CtgData data={transform} key={transform._id} />
           ))}

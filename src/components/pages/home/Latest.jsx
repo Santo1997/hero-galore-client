@@ -5,8 +5,8 @@ const Latest = ({ lastItm }) => {
   const { _id, img, toyName, description, price, rating } = lastItm;
 
   return (
-    <div className=" relative w-full h-80">
-      <div className="grid grid-cols-2 text-black">
+    <div className=" relative w-full lg:h-80">
+      <div className="grid lg:grid-cols-2 text-black">
         <div>
           <img src={img} className="w-full h-80" />
         </div>
@@ -36,11 +36,13 @@ const Latest = ({ lastItm }) => {
               Romit Gabani
             </span>
           </p>
-          <Link to={`/toy/${_id}`}>
-            <button className="btn btn-info text-white mt-10 mx-5">
-              View More
-            </button>
-          </Link>
+          <div className="text-center lg:text-left">
+            <Link to={`/toy/${_id}`}>
+              <button className="btn btn-info text-white mt-10 lg:mx-5">
+                View More
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

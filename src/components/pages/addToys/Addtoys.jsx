@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
-import useTitle from "../../../hooks/useTitle";
 import { postToDB } from "../../../utilities/apiFetch";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const Addtoys = () => {
   const { user } = useContext(AuthContext);
   const [isChecked, setIsChecked] = useState(false);
-  useTitle("Add Toys");
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);

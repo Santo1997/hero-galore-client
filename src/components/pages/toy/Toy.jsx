@@ -1,13 +1,12 @@
 import React from "react";
-import useTitle from "../../../hooks/useTitle";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const Toy = () => {
   const toyData = useLoaderData();
+  useTitle("Toy Dtails");
   const { img, toyName, price, rating, quantity, description, seller } =
     toyData;
-
-  useTitle("Toy Details");
 
   return (
     <div className="text-black ">
