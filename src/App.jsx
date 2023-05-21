@@ -4,6 +4,7 @@ import Header from "./components/base/Header";
 import { Outlet, useLoaderData, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import useTitle from "./hooks/useTitle";
+import Footer from "./components/base/Footer";
 
 export const ToyContext = createContext();
 
@@ -34,10 +35,11 @@ function App() {
       {webTitle()}
       <ToyContext.Provider value={toys}>
         <Header />
-        <div className="pt-28 mx-3 lg:mx-14">
+        <div className="min-h-[calc(100vh-325px)] pt-28 mx-3 lg:mx-14">
           <Outlet />
         </div>
         <Toaster />
+        <Footer />
       </ToyContext.Provider>
     </>
   );
