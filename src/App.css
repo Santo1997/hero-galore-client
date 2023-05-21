@@ -1,6 +1,7 @@
 #root {
   width: 100%;
   position: relative;
+  overflow: hidden;
   @apply bg-white text-black;
 }
 

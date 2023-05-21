@@ -35,7 +35,7 @@ function App() {
       {webTitle()}
       <ToyContext.Provider value={toys}>
         <Header />
-        <div className="min-h-[calc(100vh-325px)] pt-28 mx-3 lg:mx-14">
+        <div className="w-full min-h-[calc(100vh-325px)] pt-28 px-3 lg:px-14">
           <Outlet />
         </div>
         <Toaster />
