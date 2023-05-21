@@ -37,7 +37,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(`https://assign11-toys-server.vercel.app/toys/${params.id}`),
       },
       {
         path: "/add_toy",
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(`https://assign11-toys-server.vercel.app/toys/${params.id}`),
       },
       {
         path: "/blog",

@@ -14,7 +14,7 @@ const Header = () => {
             <div className="flex justify-items-start items-center lg:ms-5">
               <div className="avatar">
                 <div className=" w-12 lg:w-14 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
-                  <img src="../../../public/logo.jpeg" />
+                  <img src="https://i.ibb.co/nn647jt/logo.jpg" />
                 </div>
               </div>
               <h1 className="btn btn-ghost normal-case text-3xl lg:text-4xl text-green-600 lg:ms-2">
@@ -44,7 +44,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content bg-slate-500 mt-3 p-2 shadow rounded-box w-52 overflow-hidden absolute right-0"
+              className="menu menu-compact dropdown-content bg-slate-500 mt-3 p-2 shadow rounded-box w-52 overflow-hidden absolute right-0 z-50"
             >
               <Links></Links>
             </ul>

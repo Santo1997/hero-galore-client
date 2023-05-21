@@ -34,7 +34,9 @@ const Signup = () => {
     <div className="hero min-h-[calc(100vh-300px)]  text-black">
       <div className="hero-content flex-col w-full lg:w-4/5">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold mb-10">Register now!</h1>
+          <h1 className="text-5xl font-bold mb-10 text-green-500">
+            Register now!
+          </h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl ">
           <form onSubmit={handleRegister} className="card-body">

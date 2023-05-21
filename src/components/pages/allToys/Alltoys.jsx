@@ -9,7 +9,7 @@ const Alltoys = () => {
   const [limit, setLimit] = useState(20);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/all_toys?limit=${limit}`)
+    fetch(`https://assign11-toys-server.vercel.app/all_toys?limit=${limit}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -35,26 +35,26 @@ const Alltoys = () => {
         <>
           <div className="overflow-x-auto w-full pb-5">
             <SearchBar onSearch={handleSearch} />
-            <table className="table table-zebra text-white  w-full ">
-              <thead className="text-center">
+            <table className="table table-zebra text-white w-full ">
+              <thead className="text-center text-green-500">
                 <tr>
+                  <th className="bg-black">SL/No</th>
                   <th className="bg-black">Toy Image</th>
                   <th className="bg-black">Toy Name</th>
-                  <th className="bg-black">Description</th>
+                  <th className="bg-black">Seller</th>
                   <th className="bg-black">Category</th>
                   <th className="bg-black">Price</th>
-                  <th className="bg-black">Rating</th>
                   <th className="bg-black">Quantity</th>
                   <th className="bg-black">Action</th>
                 </tr>
               </thead>
               <tbody className="text-center">
-                {filteredToys.map((itm) => (
-                  <ToyData itm={itm} key={itm._id} />
+                {filteredToys.map((itm, index) => (
+                  <ToyData itm={itm} key={itm._id} index={index} />
                 ))}
               </tbody>
             </table>
-            <div className="text-center">
+            <div className="text-center ">
               {limit !== "all" && (
                 <>
                   <button

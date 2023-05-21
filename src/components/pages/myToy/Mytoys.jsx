@@ -10,7 +10,9 @@ const Mytoys = () => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/usertoy?user=${user.email}&sort=${sort}`)
+    fetch(
+      `https://assign11-toys-server.vercel.app/usertoy?user=${user.email}&sort=${sort}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyToy(data);
@@ -22,7 +24,7 @@ const Mytoys = () => {
     const confirm = window.confirm("Want to delete item?");
 
     if (confirm) {
-      fetch(`http://localhost:5000/toys/${id}`, {
+      fetch(`https://assign11-toys-server.vercel.app/toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -83,8 +85,9 @@ const Mytoys = () => {
                   </div>
                 </div>
                 <table className="table text-white  w-full ">
-                  <thead className="text-center">
+                  <thead className="text-center text-green-500">
                     <tr>
+                      <th className="bg-black">SL/No</th>
                       <th className="bg-black">Toy Image</th>
                       <th className="bg-black">Toy Name</th>
                       <th className="bg-black">Description</th>
@@ -96,11 +99,12 @@ const Mytoys = () => {
                     </tr>
                   </thead>
                   <tbody className="text-center">
-                    {myToy.map((toy) => (
+                    {myToy.map((toy, index) => (
                       <tr key={toy._id}>
+                        <td className="bg-gray-500">{index + 1}</td>
                         <td className="bg-gray-500">
                           <div className="flex items-center space-x-3">
-                            <div className="avatar">
+                            <div className="avatar mx-auto">
                               <div className="mask mask-squircle w-12 h-12">
                                 <img src={toy.img} />
                               </div>

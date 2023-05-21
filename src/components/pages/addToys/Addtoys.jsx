@@ -42,7 +42,7 @@ const Addtoys = () => {
     <div className="hero ">
       <div className="hero-content flex-col w-full lg:w-3/6  ">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Add A toy</h1>
+          <h1 className="text-5xl font-bold text-green-500">Add A toy</h1>
         </div>
         <div className="card w-full shadow-2xl border">
           <form onSubmit={handleAddToys} className="card-body ">
